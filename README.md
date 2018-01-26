@@ -2,7 +2,7 @@
 
 An example of using [NATS](https://nats.io) for queue messaging.
 
-This example starts a service that publishes CPU metrics every second to a `metrics-queue` topic and queue group `queuegroup1`. The queue is subscribed to by one-to-many clients and each message is received by only a single client.
+This example starts a service that publishes CPU metrics every second to a `metrics-queue` subject and queue group `queuegroup1`. The queue is subscribed to by one-to-many clients and each message is received by only a single client.
 
 ## Background
 NATS supports message queueing using point-to-point (one-to-one) communication.
@@ -27,10 +27,10 @@ You can start the [Queue Client](queue-client/README.md) using the following com
     
 Once the client and service is running you will see messages similar to the following in the terminal:
 
-    [main] INFO nats.example.pubsub.client.Main - Starting NATS Example PubSub Client
-    [jnats-subscriptions] INFO nats.example.pubsub.client.Main - Received Message: "{\"cpuPercentage\":0.0,\"totalPhysicalMemory\":16384.0,\"freePhysicalMemory\":525.0}"
-    [jnats-subscriptions] INFO nats.example.pubsub.client.Main - Received Message: "{\"cpuPercentage\":0.27,\"totalPhysicalMemory\":16384.0,\"freePhysicalMemory\":454.0}"
-    [jnats-subscriptions] INFO nats.example.pubsub.client.Main - Received Message: "{\"cpuPercentage\":0.06,\"totalPhysicalMemory\":16384.0,\"freePhysicalMemory\":362.0}"
+    [main] INFO nats.example.queue.client.Main - Starting NATS Example Queue Client
+    [jnats-subscriptions] INFO nats.example.queue.client.Main - Received Message: "{\"id\":\"d2a47686-38de-4f34-9ed8-f2088ea190a6\",\"cpuPercentage\":0.06,\"totalPhysicalMemory\":16384.0,\"freePhysicalMemory\":244.0}"
+    [jnats-subscriptions] INFO nats.example.queue.client.Main - Received Message: "{\"id\":\"aab40392-e716-4546-9cd9-472d150a74d8\",\"cpuPercentage\":0.06,\"totalPhysicalMemory\":16384.0,\"freePhysicalMemory\":275.0}"
+    [jnats-subscriptions] INFO nats.example.queue.client.Main - Received Message: "{\"id\":\"9fa01ff2-0e82-45f0-aa77-53321a2a6635\",\"cpuPercentage\":0.06,\"totalPhysicalMemory\":16384.0,\"freePhysicalMemory\":221.0}"
 
 You can start multiple client instances to see them each receiving the same messages.
 
@@ -41,10 +41,10 @@ You can start the [Queue Service](queue-service/README.md) using the following c
 
 Once the service is running you will see messages similar to the following in the terminal:
 
-    [main] INFO nats.example.pubsub.service.Main - Starting NATS Example PubSub Service
-    [Timer-0] INFO nats.example.pubsub.service.MetricsPublishTask - Publishing: {"cpuPercentage":0.0,"totalPhysicalMemory":16384.0,"freePhysicalMemory":552.0}
-    [Timer-0] INFO nats.example.pubsub.service.MetricsPublishTask - Publishing: {"cpuPercentage":0.28,"totalPhysicalMemory":16384.0,"freePhysicalMemory":448.0}
-    [Timer-0] INFO nats.example.pubsub.service.MetricsPublishTask - Publishing: {"cpuPercentage":0.04,"totalPhysicalMemory":16384.0,"freePhysicalMemory":564.0}
+    [main] INFO nats.example.queue.service.Main - Starting NATS Example Queue Service
+    [Timer-0] INFO nats.example.queue.service.MetricsPublishTask - Publishing: {"id":"e215288f-c739-4823-ad0b-f807798fc07f","cpuPercentage":0.0,"totalPhysicalMemory":16384.0,"freePhysicalMemory":373.0}
+    [Timer-0] INFO nats.example.queue.service.MetricsPublishTask - Publishing: {"id":"536f3274-5fca-4041-9fe0-dc3f68190eaf","cpuPercentage":0.24,"totalPhysicalMemory":16384.0,"freePhysicalMemory":273.0}
+    [Timer-0] INFO nats.example.queue.service.MetricsPublishTask - Publishing: {"id":"be451f72-4224-412d-81e0-d4784183e6f4","cpuPercentage":0.04,"totalPhysicalMemory":16384.0,"freePhysicalMemory":349.0}
 
 ## Bugs and Feedback
 For bugs, questions and discussions please use the [Github Issues](https://github.com/gregwhitaker/nats-queue-example/issues).
