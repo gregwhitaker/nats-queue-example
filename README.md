@@ -32,7 +32,7 @@ Once the client and service is running you will see messages similar to the foll
     [jnats-subscriptions] INFO nats.example.queue.client.Main - Received Message: "{\"id\":\"aab40392-e716-4546-9cd9-472d150a74d8\",\"cpuPercentage\":0.06,\"totalPhysicalMemory\":16384.0,\"freePhysicalMemory\":275.0}"
     [jnats-subscriptions] INFO nats.example.queue.client.Main - Received Message: "{\"id\":\"9fa01ff2-0e82-45f0-aa77-53321a2a6635\",\"cpuPercentage\":0.06,\"totalPhysicalMemory\":16384.0,\"freePhysicalMemory\":221.0}"
 
-You can start multiple client instances to see them each receiving the same messages.
+You can start multiple clients to verify that each message produced by the service is only being received by a single client.
 
 ### Start the Queue Service
 You can start the [Queue Service](queue-service/README.md) using the following command:
