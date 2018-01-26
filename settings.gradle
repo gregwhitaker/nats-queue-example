@@ -1,4 +1,3 @@
 rootProject.name = 'nats-queue-example'
 include 'queue-client'
 include 'queue-service'
-
