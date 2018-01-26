@@ -1,4 +1,5 @@
 # nats-queue-example
+[![Build Status](https://travis-ci.org/gregwhitaker/nats-queue-example.svg?branch=master)](https://travis-ci.org/gregwhitaker/nats-queue-example)
 
 An example of using [NATS](https://nats.io) for queue messaging.
 
