@@ -1,7 +1,7 @@
 # nats-queue-example
 
 ## Bugs and Feedback
-For bugs, questions and discussions please use the [Github Issues](https://github.com/gregwhitaker/nats-pubsub-example/issues).
+For bugs, questions and discussions please use the [Github Issues](https://github.com/gregwhitaker/nats-queue-example/issues).
 
 ## License
 MIT License
